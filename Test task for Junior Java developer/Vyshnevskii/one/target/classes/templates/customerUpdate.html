@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<meta charset="UTF-8">
+<title>Update</title>
+</head>
+<body>
+
+	<div class="container">
+
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+			<div class="col">
+				<div class="card shadow-sm">
+				   <div style ="margin: 0px auto auto auto; width:100%; height:100%; background-color:#55595c">
+					
+                        <h3
+							style="margin: 0px auto auto auto; text-align: center">Update person</h3>
+                        <div style="width: 30%; margin: 0px 0 0 40%"
+							class="btn-group">
+                                <br />                                <br />
+                                
+                                
+	<form action="#" th:action="@{/api/customers/{id}(id=${post.getId()})}"
+								th:object="${post}" method="post">
+
+		<label for="id">Update ID: </label> <input  type="number"
+									th:field="*{id}" id="id" placeholder="ID" />
+		<div style="color: red" th:if="${#fields.hasErrors('id')}"
+									th:each="err: ${#fields.errors('id')}" th:utext="${err}" />
+		<br /> <br /> 
+		
+		<label for="fullName">Update Name: </label> <input type="text"
+									th:field="*{fullName}" id="fullName" placeholder="Name" />
+		<div style="color: red" th:if="${#fields.hasErrors('fullName')}"
+									th:each="err: ${#fields.errors('fullName')}" th:utext="${err}" />
+		<br /> <br /> 
+		
+		<label for="email">Not updating Email: </label> <input readonly type="text"
+									th:field="*{email}" id="email" placeholder="Email" />
+		<div style="color: red" th:if="${#fields.hasErrors('email')}"
+									th:each="err: ${#fields.errors('email')}" th:utext="${err}" />
+		<br /> <br /> 
+		
+		<label for="phone">Update Number: </label> <input type="text"
+									th:field="*{phone}" id="phone" placeholder="phone" />
+		<div style="color: red" th:if="${#fields.hasErrors('phone')}"
+									th:each="err: ${#fields.errors('phone')}" th:utext="${err}" />
+		<br /> <br /> 
+		
+		<input type="submit" value="Update Customer">
+		
+		
+	</form>
+	 </div>
+                  
+				</div>
+				                  	<a class="btn" href="/api/customers">Back to all customers</a>
+				
+			</div>
+			
+			
+		</div>
+	</div>
+	 
+	</div>
+	
+</body>
+</html>

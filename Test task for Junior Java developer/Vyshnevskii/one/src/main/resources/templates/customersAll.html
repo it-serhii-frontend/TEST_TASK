@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+<meta charset="UTF-8">
+<title>All posts</title>
+<style>
+table {
+	border: 4px double #333;
+	border-collapse: separate;
+	width: 100%;
+	border-spacing: 5px 10px;
+}
+
+td {
+	padding: 3px;
+	border: 1px solid #C0C0C0;
+}
+</style>
+</head>
+
+<body>
+
+	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+		<div class="col">
+			<div class="card shadow-sm">
+				<svg class="bd-placeholder-img card-img-top" width="100%"
+					height="100%" xmlns="http://www.w3.org/2000/svg" role="img"
+					aria-label="Placeholder: Thumbnail"
+					preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <rect width="100%" height="100%" fill="#55595c">
+                        <h3
+						style="margin: -100px auto auto auto; text-align: center">List of all persons</h3>
+                        <div style="width: 30%; margin: 0px 0 0 40%"
+						class="btn-group">
+                                <br />
+                                
+<div>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>FullName</th>
+                <th>Email</th>
+                <th>Phone</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="el : ${posts}">
+                <td th:text="${el.id} "></td>
+                <br />
+                <td th:text="${el.fullName}"></td>
+                <td th:text="${el.email}"></td>
+                <td th:text="${el.phone}"></td>
+                
+                <td><a class="btn"
+											th:href="@{customerOne/{id}(id =${el.id})}">Read more</a></td>
+                <td><a class="btn"
+											th:href="@{customers/{id}(id =${el.id})}">Update</a></td>
+                <td><a class="btn"
+											th:href="@{customer/{id}(id =${el.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+    
+    
+			
+			
+			</div>
+						    <a class="btn" href="/api/customer">Create new customer</a>
+			
+			</rect>
+			</svg>
+
+			</div>
+
+		</div>
+	</div>
+
+
+
+</body>
+</html>

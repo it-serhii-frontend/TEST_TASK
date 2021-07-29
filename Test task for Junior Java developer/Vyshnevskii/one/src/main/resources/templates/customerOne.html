@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Person</title>
+</head>
+<body>
+
+	<div class="container">
+
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+			<div class="col">
+				<div class="card shadow-sm">
+								
+					                    <div style ="margin: 100px auto auto auto; width:100%; height:100%; background-color:#55595c">
+
+
+                        <h3
+							style="margin: -190px auto auto auto; text-align: center">Person:
+						<p th:text="${post.fullName}"/></p>
+           </h3>
+                        <div style="width: 30%; margin: 0px 0 0 40%"
+							class="btn-group">
+                                <br />
+                                
+<form action="#" th:action="@{/api/customerOne/{id}(id=${post.getId()})}"
+								th:object="${post}" method="post">	
+	<h3>ID: <span th:text="${post.id}"></span></h3>
+			
+	<h3>Full Name: <span th:text="${post.fullName}"></span></h3>
+	
+	
+	<h3>Email: <span th:text="${post.email}"></span></h3>
+		
+	<h3>Phone: <span th:text="${post.phone}"></span></h3>
+	
+	
+		<input type="submit" value="Back to all customers">
+	</form>
+	 </div>
+                    </rect>
+                </svg>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	</div>
+	
+</body>
+</html>
